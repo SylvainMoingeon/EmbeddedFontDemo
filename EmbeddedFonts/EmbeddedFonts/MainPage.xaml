@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="EmbeddedFonts.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    ios:Page.UseSafeArea="True"
+    BackgroundColor="White"
+    mc:Ignorable="d">
+
+    <ContentPage.Resources>
+        <!--  L'alias de la police déclaré en ressource statique  -->
+        <OnPlatform
+            x:Key="SamanthaFont"
+            x:TypeArguments="x:String"
+            Default="SamanthaOups" />
+
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="FontSize" Value="36" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+        </Style>
+    </ContentPage.Resources>
+
+    <StackLayout Margin="0,20" Spacing="20">
+        <!--  Utilisation du nom de fichier (sans extension)  -->
+        <Label FontFamily="Samantha Demo" Text="Police Samantha via son nom de fichier" />
+
+        <!--  Utilisation de l'alias  -->
+        <Label FontFamily="SamanthaOups" Text="Police Samantha via son Alias" />
+
+        <!--  Utilisation d'une ressource statique  -->
+        <Label FontFamily="{StaticResource SamanthaFont}" Text="Police Samantha via une StaticResource" />
+    </StackLayout>
+
+</ContentPage>
